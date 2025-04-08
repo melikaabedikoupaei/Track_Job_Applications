@@ -1,31 +1,29 @@
-# 📄 Track Job Applications with Emails
+# 📄 Job Application Tracker (Automated)
 
-This script automatically tracks your job application process by extracting important information from your emails and saving it into an organized Excel file (`emails_tracking.xlsx`).
+I was applying to so many companies that it became really hard to keep track of everything manually.  
+That's why I decided to **automate** the process.
 
-## ✨ Features
+This script reads my job-related emails, extracts important information (like company, position, status), and saves everything into an organized Excel file.
 
-- **Track Applications**: Records job applications as they are received.
-- **Track Rejections & Interviews**: Updates the status when a rejection or interview invitation is received.
-- **Clean Date Formatting**: All dates are converted to **plain strings** (`YYYY-MM-DD HH:MM:SS`) for perfect Excel compatibility.
-- **Auto Excel Updates**: Matches new emails with existing entries or adds new rows if needed.
+### 🛠 What it does
 
-## 🛠 How It Works
+- Tracks when I apply to a company (Application Received).
+- Tracks when I get a rejection or interview invitation.
+- Saves everything neatly into an Excel sheet: `emails_tracking.xlsx`.
+- Makes sure all dates are clean (no messy timezone problems).
 
-- Checks if `emails_tracking.xlsx` exists, or creates it if it doesn't.
-- For each incoming email:
-  - Extracts company name, job position, sender, subject, body, received time, and rejection reason.
-  - Formats received times as simple, timezone-free strings.
-  - Updates existing entries or creates new ones depending on the email category.
+### 🔥 Why I built it
 
-## 📝 Important Notes
+- I wanted an **easy way to track all applications** without spending hours updating spreadsheets manually.
+- The next step is to **build a simple UI** to visualize KPIs (Key Performance Indicators), like:
+  - How many applications I sent
+  - How many interviews I got
+  - Rejection rate
+  - Which companies responded fastest
 
-- **Timezone Handling**: No timezone issues — dates are stored as strings.
-- **Avoid Duplicates**: Matches records based on company name and job position.
-- **Status Tracking**: Supports "Application Received", "Rejected", and "Interview Invitation" statuses.
+### 📂 Excel Output
 
-## 📂 Output
-
-Data is stored in `emails_tracking.xlsx` with the following columns:
+The file stores the following info:
 
 - Received Time (Application)
 - Received Time (Rejection/Interview)
