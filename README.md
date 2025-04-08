@@ -1,29 +1,38 @@
-## agents.py
-This file contains the definition of custom agents.
-To create a Agent, you need to define the following:
-1. Role: The role of the agent.
-2. Backstory: The backstory of the agent.
-3. Goal: The goal of the agent.
-4. Tools: The tools that the agent has access to (optional).
-5. Allow Delegation: Whether the agent can delegate tasks to other agents(optional).
+# 📄 Track Job Applications with Emails
 
-    [More Details about Agent](https://docs.crewai.com/concepts/agents).
+This script automatically tracks your job application process by extracting important information from your emails and saving it into an organized Excel file (`emails_tracking.xlsx`).
 
-## task.py
-This file contains the definition of custom tasks.
-To Create a task, you need to define the following :
-1. description: A string that describes the task.
-2. agent: An agent object that will be assigned to the task.
-3. expected_output: The expected output of the task.
+## ✨ Features
 
-    [More Details about Task](https://docs.crewai.com/concepts/tasks).
+- **Track Applications**: Records job applications as they are received.
+- **Track Rejections & Interviews**: Updates the status when a rejection or interview invitation is received.
+- **Clean Date Formatting**: All dates are converted to **plain strings** (`YYYY-MM-DD HH:MM:SS`) for perfect Excel compatibility.
+- **Auto Excel Updates**: Matches new emails with existing entries or adds new rows if needed.
 
-## crew (main.py)
-This is the main file that you will use to run your custom crew.
-To create a Crew , you need to define Agent ,Task and following Parameters:
-1. Agent: List of agents that you want to include in the crew.
-2. Task: List of tasks that you want to include in the crew.
-3. verbose: If True, print the output of each task.(default is False).
-4. debug: If True, print the debug logs.(default is False).
+## 🛠 How It Works
 
-    [More Details about Crew](https://docs.crewai.com/concepts/crew).
+- Checks if `emails_tracking.xlsx` exists, or creates it if it doesn't.
+- For each incoming email:
+  - Extracts company name, job position, sender, subject, body, received time, and rejection reason.
+  - Formats received times as simple, timezone-free strings.
+  - Updates existing entries or creates new ones depending on the email category.
+
+## 📝 Important Notes
+
+- **Timezone Handling**: No timezone issues — dates are stored as strings.
+- **Avoid Duplicates**: Matches records based on company name and job position.
+- **Status Tracking**: Supports "Application Received", "Rejected", and "Interview Invitation" statuses.
+
+## 📂 Output
+
+Data is stored in `emails_tracking.xlsx` with the following columns:
+
+- Received Time (Application)
+- Received Time (Rejection/Interview)
+- Sender
+- Subject
+- Body
+- Company Name
+- Job Position
+- Status
+- Rejection Reason
