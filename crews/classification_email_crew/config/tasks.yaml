@@ -1,0 +1,14 @@
+categorization_task:
+  description: >
+    **Task**: Classify an email into one of the predefined categories.
+    **Description**: Analyze the following email content and classify it into one of these categories:
+
+    - **Application_Received**: Confirms that a job application has been submitted or received.  
+    - **Rejection**: Informs the recipient that their application has been rejected.  
+    - **Interview_Invitation**: Notifies the applicant they have progressed to the next stage, such as an interview or further evaluation.  
+    - **Irrelevant**: Not related to job applications, rejections, acceptances, or interviews.  
+
+    **Parameters**:- Email Content: "{email_content}"
+  expected_output: >
+    One of the following categories: '"Application_Received", "Rejection", "Interview_Invitation", "Irrelevant".
+  agent: categorizer

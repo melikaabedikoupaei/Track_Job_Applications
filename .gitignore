@@ -1,0 +1,9 @@
+#ignore this in github
+
+# environment variables
+.env
+gmail_token.json
+service_account_key.json
+myenv/
+#Cache folders
+__pycache__/

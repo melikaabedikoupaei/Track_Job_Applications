@@ -1,0 +1,15 @@
+information_extraction_task:
+  description: >
+    **Task**: Extract key information from an email related to job applications.
+    **Description**: Analyze the following email content and extract the following details:
+      - **Company Name**: The company the job application is for.
+      - **Job Position**: The title of the job being applied for.
+      - **Rejection Reason**: If the email is a rejection, extract the reason (if mentioned).
+
+    **Parameters**:- Email Content: "{email_content}"
+  expected_output: >
+    A dictionary with the following fields:
+      - "company_name": string
+      - "job_position": string (Optional)
+      - "rejection_reason": string (Optional)
+  agent: information_extractor
