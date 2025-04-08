@@ -162,7 +162,7 @@ class EmailFlow(Flow[EmailState]):
                     df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
 
             elif category in ["Rejection", "Interview_Invitation"]:
-                status = "Rejected" if category == "Rejection" else "Interview_Invitation"
+                status = "Rejection" if category == "Rejection" else "Interview_Invitation"
                 if not match.empty:
                     # Update existing application row
                     idx = match.index[0]
@@ -173,7 +173,7 @@ class EmailFlow(Flow[EmailState]):
                 else:
                     # No application found, create a new row
                     new_row = {
-                        "Received Time (Application)": "",
+                        "Received Time (Application)": received_time,
                         "Received Time (Rejection/Interview)": received_time,
                         "Sender": sender,
                         "Subject": subject,
@@ -189,7 +189,8 @@ class EmailFlow(Flow[EmailState]):
         df.to_excel(excel_file_path, index=False)
         print(f"Excel file '{excel_file_path}' updated successfully with {len(self.state.emails)} emails.")
 
-                
 
-flow = EmailFlow()
-flow.kickoff()
+# Add the if __name__ == "__main__" block to run the flow
+if __name__ == "__main__":
+    flow = EmailFlow()
+    flow.kickoff()
